@@ -191,4 +191,15 @@ public with sharing class TestDataFactory {
     List<OrderItem> ordItems = ConstructOrderItems(cnt, entries, orders);
     insert ordItems;
   }
+
+  public static void verifyQuantityOrdered(
+    Product2 originalProduct,
+    Product2 updatedProduct,
+    Integer qtyOrdered
+  ) {
+    System.assertEquals(
+      originalProduct.Quantity_Ordered__c + qtyOrdered,
+      updatedProduct.Quantity_Ordered__c
+    );
+  }
 }
